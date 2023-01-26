@@ -9,10 +9,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      displayName: {
+      display_name: {
         allowNull: false,
         type: Sequelize.STRING,
-        fields: 'display_name',
       },
       email: {
         allowNull: false,
