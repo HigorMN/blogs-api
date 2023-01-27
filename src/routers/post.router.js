@@ -8,6 +8,7 @@ const validateCategoryIds = require('../middlewares/validateCategoryIds');
 const router = express.Router();
 
 router.post('/', authToken, validatePost, validateCategoryIds, postController.create);
+router.get('/search', authToken, postController.search);
 router.get('/', authToken, postController.getAll);
 router.get('/:id', authToken, postController.getById);
 router.put('/:id', authToken, validatePost, postController.update);
