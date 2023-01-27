@@ -9,9 +9,9 @@ const authenticate = async ({ email, password }) => {
 
   if (!student) return { type: 'Invalid', message: 'Invalid fields' };
 
-  const token = generateToken(student.dataValues);
+  const token = await generateToken(student.dataValues);
 
-  return { token };
+  return { type: null, message: token };
 };
 
 module.exports = {

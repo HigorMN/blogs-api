@@ -1,11 +1,11 @@
 const loginService = require('../services/login.service');
 
 const auth = async (req, res) => {
-  const { type, message, token } = await loginService.authenticate(req.body);
+  const { type, message } = await loginService.authenticate(req.body);
 
-  if (type) res.status(400).json({ message });
+  if (type) return res.status(400).json({ message });
 
-  res.status(200).json({ token });
+  res.status(200).json({ token: message });
 };
 
 module.exports = {
