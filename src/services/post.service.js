@@ -27,14 +27,25 @@ const findById = async (id) => {
       { model: Category, as: 'categories', through: { attributes: [] } },
     ], 
   });
-  console.log(result);
+
   if (!result) return { type: 'NOT_FOUND', message: 'Post does not exist' };
 
   return { type: null, message: result };
+};
+
+const update = async (userId, { id, title, content }) => {
+  const [qtd] = await BlogPost.update({ title, content }, { where: { id, userId } });
+
+  if (qtd === 0) return { type: 'Unauthorized', message: 'Unauthorized user' };
+  
+  const result = await findById(id);
+
+  return { type: null, message: result.message };
 };
 
 module.exports = {
   create,
   findAll,
   findById,
+  update,
 };
