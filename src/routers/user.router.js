@@ -10,5 +10,6 @@ const router = express.Router();
 
 router.post('/', validateDisplayName, validateEmail, validatePassword, userController.create);
 router.get('/', authToken, userController.findAll);
+router.get('/:id', authToken, userController.getById);
 
 module.exports = router;
