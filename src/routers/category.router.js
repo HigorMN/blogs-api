@@ -7,5 +7,6 @@ const validateName = require('../middlewares/validateName');
 const router = express.Router();
 
 router.post('/', authToken, validateName, categoryController.create);
+router.get('/', authToken, categoryController.getCategory);
 
 module.exports = router;
