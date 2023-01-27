@@ -12,8 +12,6 @@ module.exports = async (req, res, next) => {
     const verificationResponse = await jwt.verify(token, JWT_SECRET);
     const user = await userService.findById(verificationResponse.id);
 
-    // if (!user) return res.status(401).json({ message: 'Expired or invalid token' });
-
     req.user = user;
 
     next();
