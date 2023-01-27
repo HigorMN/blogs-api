@@ -22,10 +22,17 @@ const getById = async (req, res) => {
   if (type) return res.status(404).json({ message });
 
   return res.status(200).json(message);
-}; 
+};
+
+const destroy = async (req, res) => {
+  await userService.destroy(req.user.id);
+
+  return res.status(204).json();
+};
 
 module.exports = {
   create,
   findAll,
   getById,
+  destroy,
 };
