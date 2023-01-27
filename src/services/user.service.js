@@ -16,6 +16,9 @@ const create = async ({ displayName, email, password, image }) => {
   }
 };
 
+const findById = async (id) => User.findByPk(id);
+
 module.exports = {
   create,
+  findById,
 };
