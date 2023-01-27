@@ -34,13 +34,25 @@ const findById = async (id) => {
 };
 
 const update = async (userId, { id, title, content }) => {
-  const [qtd] = await BlogPost.update({ title, content }, { where: { id, userId } });
+  const [qtdUpdate] = await BlogPost.update({ title, content }, { where: { id, userId } });
 
-  if (qtd === 0) return { type: 'Unauthorized', message: 'Unauthorized user' };
+  if (qtdUpdate === 0) return { type: 'Unauthorized', message: 'Unauthorized user' };
   
   const result = await findById(id);
 
   return { type: null, message: result.message };
+};
+
+const destroy = async (userId, id) => {
+  const auth = await BlogPost.findByPk(id);
+
+  if (!auth) return { type: 'NOT_FOUND', message: 'Post does not exist' };
+
+  if (auth.userId !== userId) return { type: 'Unauthorized', message: 'Unauthorized user' };
+
+  await BlogPost.destroy({ where: { id } });
+
+  return { type: null, message: '' };
 };
 
 module.exports = {
@@ -48,4 +60,5 @@ module.exports = {
   findAll,
   findById,
   update,
+  destroy,
 };
