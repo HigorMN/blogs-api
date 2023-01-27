@@ -7,6 +7,7 @@ app.use(express.json());
 app.use('/login', rotas.loginRouter);
 app.use('/user', rotas.userRouter);
 app.use('/categories', rotas.categoryRouter);
+app.use('/post', rotas.postRouter);
 
 // ...
 
