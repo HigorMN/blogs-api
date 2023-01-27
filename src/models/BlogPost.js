@@ -14,7 +14,16 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     tableName: 'blog_posts',
     underscored: true,
-    timestamps: false
+    timestamps: false,
+    hooks: {
+      beforeCreate: (blogPost) => {
+        blogPost.published = new Date().toISOString().replace(/T/, ' ').replace(/\..+/g, '');
+        blogPost.updated = new Date().toISOString().replace(/T/,'').replace(/\..+/g, '');
+      },
+      beforeUpdate: (blogPost) => {
+        blogPost.updated = new Date().toISOString().replace(/T/,'').replace(/\..+/g, '');
+      }
+    }
   })
 
   BlogPostTable.associate = (models) => {
