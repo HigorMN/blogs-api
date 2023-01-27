@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate: (blogPost) => {
         blogPost.published = new Date().toISOString().replace(/T/, ' ').replace(/\..+/g, '');
-        blogPost.updated = new Date().toISOString().replace(/T/,'').replace(/\..+/g, '');
+        blogPost.updated = new Date().toISOString().replace(/T/, ' ').replace(/\..+/g, '');
       },
       beforeUpdate: (blogPost) => {
         blogPost.updated = new Date().toISOString().replace(/T/,'').replace(/\..+/g, '');
