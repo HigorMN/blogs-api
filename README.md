@@ -61,6 +61,7 @@ Unsupported config option for services.node: 'platform'
 
 | Parâmetro    | Tipo     | Descrição                                   |
 | :----------  | :------- | :------------------------------------------ |
+| `Authorization`| `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
 | `email`      | `string` | **Obrigatório no body**. Email para cadastrar |
 | `displayName`| `string` | **Obrigatório no body**. Nome de exibição para cadastrar |
 | `image`      | `string` | **Obrigatório no body**. Imagem para cadastrar |
@@ -126,7 +127,7 @@ Unsupported config option for services.node: 'platform'
 **Deletar post**
 
 ```http
-  DELETE /delete/:id
+  DELETE /post/:id
 ```
 
 **Deletar usuario**
