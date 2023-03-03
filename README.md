@@ -12,11 +12,13 @@ Back-end: `Node`, `Express`, `Javascript`, `JWT`, `Sequelize`, `MySQL2`, `Docker
 
 <h2>🐋 Rodando no Docker</h2>
 
-Para executar o serviço Node, utilize o comando `docker-compose up -d`
+1. Clone o repositório em sua máquina local.
 
-Esse serviço ira inicializar um container chamado `trybers_and_dragons`. A partir daqui você pode rodar o container `trybers_and_dragons` via CLI ou abri-lo no VS Code. Use o comando `docker exec -it trybers_and_dragons bash`.
+2. Certifique-se de ter o docker-compose instalado.
 
-Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano. Instale as dependências "Caso existam" com `npm install`
+3. Execute o comando `docker-compose up -d`.
+
+4. Acesse o endereço http://localhost:3000 para acessar a API.
 
 ⚠️ **Atenção** ⚠️ Caso opte por utilizar o Docker, TODOS os comandos disponíveis no package.json (npm start, npm test, npm run dev, ...) devem ser executados DENTRO do container, ou seja, no terminal que aparece após a execução do comando docker exec citado acima.
 
@@ -48,10 +50,10 @@ Unsupported config option for services.node: 'platform'
   POST /login
 ```
 
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `email`     | `string`   | **Obrigatório no body**. Email cadastrado no banco de dados |
-| `password`  | `string`   | **Obrigatório no body**. Password cadastrado no banco de dados |
+| Parâmetro  | Tipo     | Descrição                                                      |
+| :--------- | :------- | :------------------------------------------------------------- |
+| `email`    | `string` | **Obrigatório no body**. Email cadastrado no banco de dados    |
+| `password` | `string` | **Obrigatório no body**. Password cadastrado no banco de dados |
 
 **Criar um user**
 
@@ -59,13 +61,13 @@ Unsupported config option for services.node: 'platform'
   POST /user
 ```
 
-| Parâmetro    | Tipo     | Descrição                                   |
-| :----------  | :------- | :------------------------------------------ |
-| `Authorization`| `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
-| `email`      | `string` | **Obrigatório no body**. Email para cadastrar |
-| `displayName`| `string` | **Obrigatório no body**. Nome de exibição para cadastrar |
-| `image`      | `string` | **Obrigatório no body**. Imagem para cadastrar |
-| `password`   | `string` | **Obrigatório no body**. Password para cadastrar |
+| Parâmetro       | Tipo     | Descrição                                                                       |
+| :-------------- | :------- | :------------------------------------------------------------------------------ |
+| `Authorization` | `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
+| `email`         | `string` | **Obrigatório no body**. Email para cadastrar                                   |
+| `displayName`   | `string` | **Obrigatório no body**. Nome de exibição para cadastrar                        |
+| `image`         | `string` | **Obrigatório no body**. Imagem para cadastrar                                  |
+| `password`      | `string` | **Obrigatório no body**. Password para cadastrar                                |
 
 **Criar categorias**
 
@@ -73,10 +75,10 @@ Unsupported config option for services.node: 'platform'
   POST /categories
 ```
 
-| Parâmetro      | Tipo       | Descrição                                   |
-| :------------- | :--------- | :------------------------------------------ |
-| `Authorization`| `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
-| `name`         | `string` | **Obrigatório no body**. Name existentes no banco de dados |
+| Parâmetro       | Tipo     | Descrição                                                                       |
+| :-------------- | :------- | :------------------------------------------------------------------------------ |
+| `Authorization` | `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
+| `name`          | `string` | **Obrigatório no body**. Name existentes no banco de dados                      |
 
 **Criar postagens**
 
@@ -84,12 +86,12 @@ Unsupported config option for services.node: 'platform'
   POST /post
 ```
 
-| Parâmetro      | Tipo     | Descrição                                   |
-| :------------- | :------- | :------------------------------------------ |
-| `Authorization`| `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
-| `title`        | `string` | **Obrigatório no body**. title da postagem  |
-| `content`      | `string` | **Obrigatório no body**. Content da postagem |
-| `categoryIds`  | `number` | **Obrigatório no body**. CategoryIds id da catecoria |
+| Parâmetro       | Tipo     | Descrição                                                                       |
+| :-------------- | :------- | :------------------------------------------------------------------------------ |
+| `Authorization` | `string` | **Obrigatório no Header**. Key Recebida no login ou na hora de criar um usuario |
+| `title`         | `string` | **Obrigatório no body**. title da postagem                                      |
+| `content`       | `string` | **Obrigatório no body**. Content da postagem                                    |
+| `categoryIds`   | `number` | **Obrigatório no body**. CategoryIds id da catecoria                            |
 
 **Pegar post**
 
