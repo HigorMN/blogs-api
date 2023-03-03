@@ -8,7 +8,7 @@ Além disso, é necessário associar categorias aos posts, o que implica na cria
 
 <h2>Stack utilizada</h2>
 
-Back-end: `Node`, `Express`, `Javascript`, `JWT`, `Sequelize`, `MySQL2`, `Docker`
+Back-end: `Node.Js`, `Express`, `Javascript`, `JWT`, `Sequelize`, `MySQL2`, `Docker`
 
 <h2>🐋 Rodando no Docker</h2>
 
